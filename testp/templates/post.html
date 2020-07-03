@@ -1,0 +1,18 @@
+{%extends 'base.html' %}
+{%block content %}
+Poster : {{p.user.name}} <br><br>
+Genre: {{p.genre}}<br><br>
+<h2> {{p.content}} </h2> <br><br>
+Comments:<br><br>
+{%for c in cs%}
+{{c.user.name}}: &nbsp;{{c.content}} <br>
+{% endfor %}
+<form action='#' method="POST">
+    {% csrf_token %}
+    <br>
+    Add a comment:<br>
+    <input type="text" name="comment" > <br>
+    <input type="submit" value="comment" > <br>
+</form>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{%extends 'base.html' %}
+{%block content %}
+<h3>RECEIVED COMMENTS:</h3>
+<br><br>
+{%for c in comments%}
+{{c.user.name}}: <a href="{%url 'post' id=c.post.id %}">{{c.content}}</a>
+ <br>
+{% endfor %}
+{% endblock %}

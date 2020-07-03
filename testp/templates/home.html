@@ -1,0 +1,20 @@
+{%extends 'base.html' %}
+{%block content %}
+WELCOME {{name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/myposts">YOUR POSTS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/mycomments">RECEIVED COMMENTS</a>
+<br><br>
+POSTS:<br><br>
+{%for p in posts%}
+{{p.user.name}}: <a href="{%url 'post' id=p.id %}">{{p.content}}</a> <br>
+{% endfor %}
+<form action='#' method="POST">
+    {% csrf_token %}
+    <br>
+    Write a post:<br>
+    <input type="text" name="post" > <br>
+     Genre:<br>
+    <input type="text" name="genre" > <br>
+    <input type="submit" value="post" > <br>
+</form>
+{% endblock %}

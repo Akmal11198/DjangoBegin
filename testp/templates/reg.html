@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+{%block content %}
+<h3>REGISTRATION</h3>
+<form action='reg' method="POST">
+    {% csrf_token %}
+    Username : <br>
+    <input type="text" name="username" > <br>
+    Password : <br>
+    <input type="password" name="password" > <br>
+    Confirm Password : <br>
+    <input type="password" name="cp" > <br>
+    <input type="submit" value="Register" > <br>
+    {{error}}  <br>
+    <button type="submit" formaction="/" formmethod="GET">Return to Login Page</button>
+</form>
+{% endblock %}

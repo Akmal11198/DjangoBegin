@@ -1,0 +1,29 @@
+{%extends 'base.html' %}
+{%block content %}
+<h3>YOUR POSTS:</h3>
+<form action='#' method="GET">
+    Filter by Genre<br>
+    <input type="text" name="genre" > <br>
+    <input type="submit" value="Filter" > <br>
+</form>
+<br><br>
+{%for p in posts%}
+ID: {{p.id}} &nbsp;&nbsp;&nbsp;&nbsp; GENRE: {{p.genre}}<br>
+ <h4>{{p.content}}</h4>
+ <br>
+ 
+{% endfor %}
+
+<form action='#' method="POST">
+    {% csrf_token %}
+    <br>
+    Edit post:<br>
+    Post ID:<br>
+    <input type="text" name="id" > <br>
+    Edit Post Content:<br>
+    <input type="text" name="post" > <br>
+    Change Genre:<br>
+    <input type="text" name="genre" > <br>
+    <input type="submit" value="Done" > <br>
+</form>
+{% endblock %}
