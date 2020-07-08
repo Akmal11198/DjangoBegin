@@ -34,7 +34,7 @@ def post(request,id=1):
 
 
 def myposts(request):
-     if not request.session.has_key('username'):
+    if not request.session.has_key('username'):
         return redirect('/') 
 
     if request.method=="GET":
@@ -51,7 +51,7 @@ def myposts(request):
     return redirect('/myposts')
 
 def mycomments(request):
-     if not request.session.has_key('username'):
+    if not request.session.has_key('username'):
         return redirect('/') 
         
     comments=Comment.objects.filter(post__in=Post.objects.filter(user=User.objects.get(name=request.session["username"])))
