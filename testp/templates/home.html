@@ -1,20 +1,29 @@
-{%extends 'base.html' %}
-{%block content %}
-WELCOME {{name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/myposts">YOUR POSTS</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="/mycomments">RECEIVED COMMENTS</a>
-<br><br>
-POSTS:<br><br>
-{%for p in posts%}
-{{p.user.name}}: <a href="{%url 'post' id=p.id %}">{{p.content}}</a> <br>
-{% endfor %}
-<form action='#' method="POST">
-    {% csrf_token %}
-    <br>
-    Write a post:<br>
-    <input type="text" name="post" > <br>
-     Genre:<br>
-    <input type="text" name="genre" > <br>
-    <input type="submit" value="post" > <br>
-</form>
+{%extends 'base.html' %} {%block content %}
+<div class="home">
+  <div class="head">
+    <h3>WELCOME, {{name}}</h3>
+    <a href="/myposts">YOUR POSTS</a>
+    <br />
+    <a href="/mycomments">RECEIVED COMMENTS</a>
+    <form action="#" method="POST">
+      {% csrf_token %}
+      <br />
+      Write a post:<br />
+      <input type="text" name="post" /> <br />
+      Genre:<br />
+      <input type="text" name="genre" /> <br />
+      <input type="submit" value="post" /> <br />
+    </form>
+  </div>
+  <div class="posts">
+    <h3>POSTS</h3>
+    {%for p in posts%}
+    <div class="post">
+      {{p.user.name}} : <a href="{%url 'post' id=p.id %}">{{p.content}}</a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
 {% endblock %}
