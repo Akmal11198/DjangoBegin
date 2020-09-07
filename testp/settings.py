@@ -81,9 +81,12 @@ DATABASES = {
         'NAME': 'testp',
         'USER':'postgres',
         'PASSWORD':'akmal000',
-        'HOST':'localhost',
+        'HOST':'localhost'
     }
 }
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
