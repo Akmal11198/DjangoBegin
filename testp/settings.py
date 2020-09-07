@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'testp',
         'USER':'postgres',
         'PASSWORD':'akmal000',
-        'HOST':'notfacebook11198.herokuapp.com'
+        'HOST':'localhost',
     }
 }
 
